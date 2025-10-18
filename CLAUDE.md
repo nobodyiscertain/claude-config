@@ -27,12 +27,9 @@ claude-config/
 │   ├── generate-tasks.md         # Task breakdown from requirements
 │   ├── task-orchestrator.md      # Automated task execution with AI agents
 │   ├── process-task-list.md      # Manual task list workflow
-│   ├── worktree-setup.md         # Git worktree creation for large features
-│   ├── worktree-finish.md        # Worktree cleanup after merge
 │   ├── smart-commit.md           # Intelligent commit creation
 │   ├── create-pr.md              # Draft PR creation
-│   ├── update-docs.md            # Documentation sync from git history
-│   └── WORKFLOW.md               # Complete workflow guide
+│   └── update-docs.md            # Documentation sync from git history
 └── guidelines/                    # Language-specific development guidelines
     ├── git-workflow.md           # Branch naming, commits, PRs
     ├── ruby-rails.md             # Rails conventions and best practices
@@ -91,9 +88,9 @@ allowed-tools: Bash, Read, Edit, Write, Task, SlashCommand
    - Save to `tasks/prd-*.md` or `tasks/erd-*.md`
    - Optionally integrate with Linear
 
-3. **Git Commands** (`/smart-commit`, `/worktree-setup`):
+3. **Git Commands** (`/smart-commit`, `/create-pr`):
    - Analyze git state
-   - Follow branch naming: `<TICKET>-jdw-claude-<feature>` or `jdw-claude-<feature>`
+   - Follow branch naming: `<TICKET>-claude-<feature>` or `claude-<feature>`
    - Enforce proper workflows (never commit to main)
 
 ## Specialized Agent Roles
@@ -125,8 +122,8 @@ allowed-tools: Bash, Read, Edit, Write, Task, SlashCommand
 ## Important Conventions
 
 ### Branch Naming
-- **With ticket:** `<TICKET>-jdw-<agent-name>-<feature>` (e.g., `MDZ-10-jdw-claude-user-auth`)
-- **Without ticket:** `jdw-<agent-name>-<feature>` (e.g., `jdw-claude-refactor-orders`)
+- **With ticket:** `<TICKET>-<agent-name>-<feature>` (e.g., `MDZ-10-claude-user-auth`)
+- **Without ticket:** `<agent-name>-<feature>` (e.g., `claude-refactor-orders`)
 - Check context for Linear/Jira ticket references
 
 ### Commit Messages
@@ -157,7 +154,6 @@ Mark completed tasks with `[x]`.
 - `tasks/prd-*.md` - Product requirements from `/create-prd`
 - `tasks/erd-*.md` - Engineering requirements from `/create-erd`
 - `tasks/tasks-*.md` - Task breakdowns from `/generate-tasks`
-- `.worktrees/` - Git worktrees (gitignored)
 
 ## Integration with Other Projects
 
@@ -266,8 +262,6 @@ Commits
   ↓ /create-pr
 Pull Request
   ↓ (merge on GitHub)
-Cleanup
-  ↓ /worktree-finish
 Done
 ```
 
@@ -286,8 +280,7 @@ This repository embodies several key principles:
 
 **When adding new commands:**
 - Place in `commands/` directory
-- Update `commands/README.md`
-- Consider updating `commands/WORKFLOW.md` if it changes workflows
+- Update main `README.md` if it significantly changes workflows
 
 **When updating agent roles:**
 - Edit `agents/implementer.md` or `agents/review-architect.md`
@@ -302,6 +295,5 @@ This repository embodies several key principles:
 ## Related Resources
 
 - Main documentation: `README.md`
-- Workflow guide: `commands/WORKFLOW.md`
 - Agent guidelines: `AGENTS.md`
-- Command documentation: `commands/README.md`
+- Individual command files: `commands/*.md`
