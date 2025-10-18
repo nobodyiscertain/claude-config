@@ -71,7 +71,7 @@ The [AGENTS.md](AGENTS.md) file follows the [AGENTS.md standard](https://github.
 
 - **Core Philosophy** - YAGNI, convention over configuration, clarity over cleverness
 - **Agent Workflow** - Starting work, during development, pre-completion checklist
-- **Git Workflow** - Branch naming (`<TICKET>-jdw-claude-<feature>`), commit practices
+- **Git Workflow** - Branch naming (`<TICKET>-claude-<feature>`), commit practices
 - **Language-Specific Guides** - Links to Rails, JavaScript, and testing guidelines
 - **Tools & Integrations** - Context7, Linear, GitHub CLI usage patterns
 - **Learning & Documentation** - Knowledge capture and decision records
@@ -411,7 +411,7 @@ Start: I have an idea
 
 ```bash
 # 1. Create branch
-git checkout -b jdw-claude-fix-validation
+git checkout -b claude-fix-validation
 
 # 2. Make changes & tests
 
@@ -423,7 +423,7 @@ git checkout -b jdw-claude-fix-validation
 
 # 5. After merge
 git checkout main && git pull
-git branch -d jdw-claude-fix-validation
+git branch -d claude-fix-validation
 ```
 
 ### Feature Development Workflow
@@ -458,13 +458,13 @@ git checkout main && git pull
 ### Example 1: Small Bug Fix
 
 ```bash
-git checkout -b jdw-claude-fix-login-validation
+git checkout -b claude-fix-login-validation
 # ... make fixes ...
 /smart-commit
 /create-pr
 # ... after merge ...
 git checkout main && git pull
-git branch -d jdw-claude-fix-login-validation
+git branch -d claude-fix-login-validation
 ```
 
 **Time:** 30 minutes | **Complexity:** Low
@@ -472,7 +472,7 @@ git branch -d jdw-claude-fix-login-validation
 ### Example 2: Medium Feature (Clear Requirements)
 
 ```bash
-git checkout -b jdw-claude-export-csv
+git checkout -b claude-export-csv
 /create-erd
 /generate-tasks tasks/erd-export-csv.md
 /process-task-list tasks/tasks-export-csv.md
@@ -480,7 +480,7 @@ git checkout -b jdw-claude-export-csv
 /update-docs
 # ... after merge ...
 git checkout main && git pull
-git branch -d jdw-claude-export-csv
+git branch -d claude-export-csv
 ```
 
 **Time:** 1-2 days | **Complexity:** Medium
@@ -488,7 +488,7 @@ git branch -d jdw-claude-export-csv
 ### Example 3: Complex Feature (Vague Idea)
 
 ```bash
-git checkout -b jdw-claude-analytics
+git checkout -b claude-analytics
 /brainstorm
 /create-prd
 /generate-tasks tasks/prd-analytics.md
@@ -497,7 +497,7 @@ git checkout -b jdw-claude-analytics
 /update-docs
 # ... after merge ...
 git checkout main && git pull
-git branch -d jdw-claude-analytics
+git branch -d claude-analytics
 ```
 
 **Time:** 3-5 days | **Complexity:** High | **AI Assistance:** High

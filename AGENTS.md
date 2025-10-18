@@ -60,8 +60,8 @@ Core workflow guidance for AI agents working on software development projects.
 ### Branch Management
 - **Never commit to main**: Always work on feature branches; create one automatically if not already on a branch
 - **Feature branch naming**:
-  - With ticket: `<TICKET>-jdw-<agent-name>-<feature-description>` (e.g., `MDZ-10-jdw-claude-user-authentication`)
-  - Without ticket: `jdw-<agent-name>-<feature-description>` (e.g., `jdw-claude-refactor-orders`)
+  - With ticket: `<TICKET>-<agent-name>-<feature-description>` (e.g., `MDZ-10-claude-user-authentication`)
+  - Without ticket: `<agent-name>-<feature-description>` (e.g., `claude-refactor-orders`)
   - Check context for ticket references (Linear, Jira issues) and include if present
 
 ### Commit Practices
