@@ -1,69 +1,106 @@
-# AI Agents Repository
+# Claude Code Configuration Repository
 
-A centralized collection of instructions, guidelines, procedures, and configurations for AI coding agents. This repository serves as a comprehensive guide for AI agents (like Claude, GitHub Copilot, Cursor, etc.) when working on software development projects.
+A centralized collection of instructions, guidelines, and custom slash commands for AI coding agents, specifically optimized for Claude Code. This repository provides structured workflows for feature development from ideation through production.
 
 ## Purpose
 
 This repository provides:
 - **AGENTS.md** - Core agent workflow and instructions following the [AGENTS.md standard](https://github.com/openai/agents.md)
-- **Detailed Guidelines** - Language-specific conventions, testing practices, and git workflows
-- **Reusable Configurations** - Agent configs, slash commands, and guardrails for consistent AI-assisted development
+- **Custom Slash Commands** - Complete workflow commands for Claude Code (brainstorming, requirements, task orchestration, git workflows)
+- **Specialized Agent Roles** - Focused implementer and review-architect agents for structured development
+- **Development Guidelines** - Language-specific conventions, testing practices, and git workflows
 
 ## Repository Structure
 
 ```
-ai-config/
-├── README.md                      # This file
-├── AGENTS.md                      # Core agent instructions
+claude-config/
+├── README.md                      # This file - complete guide and workflows
+├── CLAUDE.md                      # Repository-specific Claude Code instructions
+├── AGENTS.md                      # Core agent guidelines (use in project roots)
 ├── agents/                        # Specialized agent role definitions
-│   ├── implementer.md            # Focused task execution agent
-│   └── review-architect.md       # Quality assurance and review agent
+│   ├── implementer.md            # Task execution agent (no scope creep)
+│   └── review-architect.md       # Code review and quality assurance agent
 ├── commands/                      # Custom Claude Code slash commands
-│   ├── smart-commit.md           # Intelligent commit creation command
-│   ├── task-orchestrator.md      # Task workflow orchestration command
-│   └── README.md                 # Commands documentation
-└── guidelines/
-    ├── ruby-rails.md             # Ruby on Rails conventions and best practices
-    ├── javascript.md             # JavaScript/TypeScript guidelines
-    ├── testing.md                # Comprehensive testing guide (RSpec, Jest, etc.)
-    └── git-workflow.md           # Git workflow and commit standards
+│   ├── brainstorm.md             # Interactive idea refinement
+│   ├── create-prd.md             # Product requirements generation
+│   ├── create-erd.md             # Engineering requirements generation
+│   ├── generate-tasks.md         # Task breakdown from requirements
+│   ├── task-orchestrator.md      # Automated task execution with AI agents
+│   ├── process-task-list.md      # Manual task list workflow guidance
+│   ├── smart-commit.md           # Intelligent commit creation
+│   ├── create-pr.md              # Draft PR creation
+│   └── update-docs.md            # Documentation sync from git history
+└── guidelines/                    # Language-specific development guidelines
+    ├── git-workflow.md           # Branch naming, commits, PRs, rebasing
+    ├── ruby-rails.md             # Rails conventions and best practices
+    ├── javascript.md             # JS/TS, React, Hotwire/Stimulus guidelines
+    └── testing.md                # RSpec, Jest, FactoryBot, mocking strategies
 ```
 
 ## Quick Start
 
-### For AI Agents
+### For Claude Code Users
 
-1. **Read [AGENTS.md](../AGENTS.md) first** - This contains core workflow instructions
-2. **Reference language-specific guidelines** in the `guidelines/` directory as needed
-3. **Follow the implementation checklist** before completing any work
+**Global Setup (Recommended):**
+```bash
+# Reference this repo in your global Claude Code config
+echo "For all projects, follow guidelines in ~/Code/claude-config/AGENTS.md" >> ~/.claude/CLAUDE.md
+```
 
-### For Developers
+**Project-Specific Setup:**
+```bash
+# Copy commands to use in a specific project
+cp -r ~/Code/claude-config/commands /path/to/project/.claude/
 
-1. Copy this repository structure to your projects
-2. Customize the guidelines to match your team's conventions
-3. Place `AGENTS.md` in your project root to guide AI assistants
-4. Reference these files in your `.claude/CLAUDE.md` or similar AI configuration
+# Copy AGENTS.md to project root for project-specific context
+cp ~/Code/claude-config/AGENTS.md /path/to/project/
+```
 
-## Using AGENTS.md
+### For AI Agents Reading This
 
-The [AGENTS.md](../AGENTS.md) file follows the standard proposed by OpenAI for providing context to AI coding agents. Place this file in the root of any project where you want AI agents to follow specific guidelines.
+1. **Read [AGENTS.md](AGENTS.md) first** - Contains core workflow instructions and philosophy
+2. **Check [CLAUDE.md](CLAUDE.md)** - Repository-specific architecture and conventions
+3. **Reference the Workflows section below** - Complete workflow decision trees and examples
+4. **Use language-specific guidelines** in `guidelines/` as needed
 
-### What AGENTS.md Contains
+## Core Components
 
-- **Core Philosophy** - Fundamental principles for code quality
-- **Agent Workflow** - Step-by-step process for starting, working, and completing tasks
-- **Git Workflow** - Branching, commits, and PR guidelines
-- **Development Server Guidelines** - How to run projects without breaking hot-reload
-- **Security Guidelines** - Best practices for secure development
-- **Implementation Checklist** - Pre-flight checks before completing work
+### AGENTS.md - Universal Agent Guidelines
 
-### Linking to Detailed Guidelines
+The [AGENTS.md](AGENTS.md) file follows the [AGENTS.md standard](https://github.com/openai/agents.md) proposed by OpenAI. It contains:
 
-AGENTS.md references detailed guidelines for:
-- **[Ruby on Rails](guidelines/ruby-rails.md)** - Models, controllers, services, routing, migrations
-- **[JavaScript](guidelines/javascript.md)** - Vanilla JS, React, Hotwire/Stimulus, TypeScript
-- **[Testing](guidelines/testing.md)** - RSpec, Jest, FactoryBot, mocking strategies
-- **[Git Workflow](guidelines/git-workflow.md)** - Commits, branches, PRs, rebasing
+- **Core Philosophy** - YAGNI, convention over configuration, clarity over cleverness
+- **Agent Workflow** - Starting work, during development, pre-completion checklist
+- **Git Workflow** - Branch naming (`<TICKET>-jdw-claude-<feature>`), commit practices
+- **Language-Specific Guides** - Links to Rails, JavaScript, and testing guidelines
+- **Tools & Integrations** - Context7, Linear, GitHub CLI usage patterns
+- **Learning & Documentation** - Knowledge capture and decision records
+
+**Usage:** Place in project roots or reference globally via `~/.claude/CLAUDE.md`
+
+### Complete Development Workflows
+
+This repository provides end-to-end workflows for feature development:
+
+**Ideation → Requirements → Implementation → Review → Merge**
+
+```
+/brainstorm (vague idea)
+    ↓
+/create-prd or /create-erd (clear requirements)
+    ↓
+/generate-tasks (task breakdown)
+    ↓
+/task-orchestrator (AI implements) or /process-task-list (manual)
+    ↓
+/smart-commit (focused commits)
+    ↓
+/create-pr (pull request)
+    ↓
+/update-docs (keep docs in sync)
+```
+
+See the **Workflows** section below for complete workflow guide with decision trees.
 
 ## Specialized Agents
 
@@ -102,63 +139,64 @@ A quality assurance agent that provides critical oversight and code review.
 - Catching edge cases and potential bugs
 - Working within a larger orchestrated workflow
 
-## Custom Commands
+## Custom Slash Commands
 
-This repository includes custom Claude Code slash commands in the [`commands/`](commands/) directory.
+This repository includes 10+ custom Claude Code slash commands. See [commands/README.md](commands/README.md) for complete documentation.
 
-### `/smart-commit` - Intelligent Commit Creation
+### Command Categories
 
-Automatically creates focused, well-structured commits by:
-1. Checking if you're on main (creates feature branch if needed)
-2. Analyzing all changes (staged and unstaged)
-3. Grouping related changes by topic
-4. Creating separate commits for each logical change
-5. Writing meaningful commit messages following guidelines
+**Ideation & Exploration:**
+- `/brainstorm` - Interactively refine vague ideas through guided questions
 
-**Usage:**
+**Requirements & Planning:**
+- `/create-prd` - Generate Product Requirements Documents
+- `/create-erd` - Generate Engineering Requirements Documents
+- `/generate-tasks` - Create detailed task breakdowns from requirements
+
+**Implementation:**
+- `/task-orchestrator` - Automated task execution with implementer + reviewer agents
+- `/process-task-list` - Manual task list workflow with approval gates
+
+**Git & Commits:**
+- `/smart-commit` - Intelligently analyze changes and create focused commits
+- `/create-pr` - Create draft pull requests with comprehensive summaries
+
+**Documentation:**
+- `/update-docs` - Review git history and propose documentation updates
+
+### Key Command: `/task-orchestrator`
+
+Coordinates structured task implementation using specialized agents:
+
 ```bash
-# After making changes
+/task-orchestrator tasks/tasks-feature-name.md
+```
+
+**Process:**
+1. Reads task list, finds next uncompleted task
+2. Spawns **Implementer Agent** to execute task (no scope creep)
+3. Spawns **Review Architect Agent** to review implementation
+4. Presents both reports to you
+5. **Pauses for your approval** before proceeding
+6. Runs `/smart-commit` to commit changes
+7. Marks task complete, moves to next task
+
+**Benefits:** Systematic execution, built-in code review, human-in-the-loop control
+
+### Key Command: `/smart-commit`
+
+Analyzes all changes and creates focused, logical commits:
+
+```bash
 /smart-commit
 ```
 
-### `/task-orchestrator` - Structured Task Workflow
-
-Coordinates structured task implementation using specialized implementer and review agents.
-
-**Workflow:**
-1. Reads a task list markdown file
-2. Identifies the next uncompleted task
-3. Spawns an Implementer Agent to execute the task
-4. Spawns a Review Architect Agent to review the implementation
-5. Presents results and pauses for user approval
-6. Runs `/smart-commit` to commit changes
-7. Marks task complete and moves to next task
-
-**Usage:**
-```bash
-# Start orchestrated workflow
-/task-orchestrator path/to/tasks.md
-```
-
-**Task list format:**
-```markdown
-## Tasks
-
-- [ ] 1.0 Parent Task Title
-  - [ ] 1.1 Subtask description
-  - [ ] 1.2 Subtask description
-- [ ] 2.0 Another Parent Task
-  - [ ] 2.1 Subtask description
-```
-
-**Benefits:**
-- Systematic task execution with built-in code review
-- Automatic commit creation after each task
-- Clear separation between implementation and review
-- User approval at each step ensures control
-- Progress tracking via task list updates
-
-See [commands/README.md](commands/README.md) for full documentation and examples.
+**Features:**
+- Auto-creates feature branch if on main
+- Groups related changes by topic
+- Splits unrelated changes into separate commits
+- Writes clear commit messages (no "feat:" prefixes)
+- Follows git-workflow.md conventions
 
 ## Guidelines Overview
 
@@ -207,80 +245,304 @@ Git best practices covering:
 - Useful git commands and aliases
 - Emergency procedures
 
-## Integration with AI Tools
+## Integration Patterns
 
-### Claude Code / Claude Desktop
+### Global Setup (All Projects)
 
-Add this to your `~/.claude/CLAUDE.md`:
+Add to `~/.claude/CLAUDE.md`:
 
 ```markdown
-## Agent Instructions
+# Global Agent Instructions
 
-For all projects, follow the guidelines in ~/Code/dotfiles/AGENTS.md
+For all projects, follow the guidelines in ~/Code/claude-config/AGENTS.md
 
 When working on specific technologies, reference:
-- Ruby/Rails: ~/Code/dotfiles/ai-config/guidelines/ruby-rails.md
-- JavaScript: ~/Code/dotfiles/ai-config/guidelines/javascript.md
-- Testing: ~/Code/dotfiles/ai-config/guidelines/testing.md
-- Git workflow: ~/Code/dotfiles/ai-config/guidelines/git-workflow.md
+- Ruby/Rails: ~/Code/claude-config/guidelines/ruby-rails.md
+- JavaScript: ~/Code/claude-config/guidelines/javascript.md
+- Testing: ~/Code/claude-config/guidelines/testing.md
+- Git workflow: ~/Code/claude-config/guidelines/git-workflow.md
 ```
 
-### Project-Specific AGENTS.md
+### Project-Specific Setup
 
-For individual projects, create an `AGENTS.md` in the project root:
-
+**Option 1: Reference globally**
 ```markdown
-# Project Name - Agent Guidelines
-
-## Project-Specific Setup
-[Project-specific instructions]
+# my-project/AGENTS.md
 
 ## General Guidelines
-For general coding guidelines, see: ~/Code/dotfiles/AGENTS.md
+Follow universal guidelines: ~/Code/claude-config/AGENTS.md
 
-## Tech Stack
-- Ruby on Rails 7.x
-- Hotwire (Turbo + Stimulus)
-- PostgreSQL
-- RSpec for testing
+## Project-Specific
+- Tech: Rails 7 + Hotwire + PostgreSQL
+- Testing: RSpec with FactoryBot
+- Deployment: Heroku
 ```
 
-## Customization
+**Option 2: Copy commands locally**
+```bash
+# Use slash commands in specific project
+cp -r ~/Code/claude-config/commands /path/to/project/.claude/
+cp ~/Code/claude-config/agents/* /path/to/project/.claude/agents/
+```
 
-Feel free to customize these guidelines to match your team's preferences:
+## Customization & Extension
 
-1. **Fork this structure** for your organization
-2. **Modify guidelines** to match your coding standards
-3. **Add project-specific sections** as needed
-4. **Create additional guideline files** for other languages/frameworks
+### For Teams
 
-## Contributing
+Fork this repository and customize:
 
-To add or update guidelines:
+1. **Modify guidelines** - Update language-specific conventions in `guidelines/`
+2. **Add new commands** - Create custom slash commands in `commands/`
+3. **Adjust workflows** - Update `commands/WORKFLOW.md` for your process
+4. **Extend agent roles** - Add specialized agents in `agents/`
 
-1. Create a feature branch following the naming convention:
-   - With ticket: `<TICKET>-jdw-<agent-name>-<description>` (e.g., `MDZ-10-jdw-claude-update-guidelines`)
-   - Without ticket: `jdw-<agent-name>-<description>` (e.g., `jdw-claude-update-guidelines`)
-2. Make your changes
-3. Follow the commit guidelines in [guidelines/git-workflow.md](guidelines/git-workflow.md)
-4. Submit a pull request
+### Adding New Commands
 
-## Why This Matters
+Create a new `.md` file in `commands/` (or `~/.claude/commands/` for global use):
 
-AI coding agents are powerful tools, but they work best with clear, comprehensive instructions. This repository:
+```markdown
+---
+description: Brief description of what this command does
+allowed-tools: Bash, Read, Edit, Write, Task, SlashCommand
+---
 
-- **Reduces repetition** - Write guidelines once, reference everywhere
-- **Ensures consistency** - All AI agents follow the same conventions
-- **Improves quality** - Agents know to test, lint, and follow best practices
-- **Saves time** - Agents understand your workflow from the start
-- **Makes onboarding easier** - New team members (human or AI) have clear documentation
+Your command instructions here.
 
-## References
+You can use:
+- $ARGUMENTS for all arguments passed to the command
+- $1, $2, etc. for specific positional arguments
+- Reference other files with full paths
+- Call other slash commands with SlashCommand tool
+```
 
-- [AGENTS.md Standard](https://github.com/openai/agents.md) - Original specification from OpenAI
-- [AGENTS.md Website](https://agents.md/) - Documentation and examples
-- [Claude Code Documentation](https://docs.claude.com/en/docs/claude-code) - Claude Code specific features
+**Simple Example:**
+```markdown
+---
+description: Run tests and show results
+allowed-tools: Bash
+---
+
+Run the test suite and show any failures.
+
+Execute the test command appropriate for this project and explain any failures.
+```
+
+**Available Tools:**
+- `Bash` - Execute shell commands
+- `Read` - Read file contents
+- `Write` - Create new files
+- `Edit` - Modify existing files
+- `Grep` - Search in files
+- `Glob` - Find files by pattern
+- `Task` - Spawn sub-agents for complex work
+- `SlashCommand` - Execute other slash commands
+
+**Best Practices:**
+1. **Be specific** - Clearly define expected behavior
+2. **Include examples** - Show what success looks like
+3. **Handle edge cases** - Think about error conditions
+4. **Reference guidelines** - Link to AGENTS.md or guidelines when relevant
+5. **Test thoroughly** - Try in different scenarios before committing
+
+### Adding New Guidelines
+
+Create a new `.md` file in `guidelines/`:
+
+```markdown
+# Language/Framework Name Guidelines
+
+## Core Principles
+[Fundamental patterns]
+
+## Code Structure
+[Conventions and patterns]
+
+## Common Patterns
+[Examples with code]
+
+## Anti-Patterns
+[What to avoid]
+```
+
+Update `AGENTS.md` to reference the new guideline.
+
+## Why This Repository Exists
+
+AI coding agents are powerful, but they work best with structured guidance. This repository provides:
+
+- **Systematic Workflows** - From vague idea to production-ready code with clear steps
+- **Quality Gates** - Built-in review processes prevent scope creep and bugs
+- **Human Control** - Approval gates ensure AI never acts fully autonomously
+- **Consistency** - All agents follow the same conventions across projects
+- **Knowledge Capture** - Document decisions, patterns, and learnings as you work
+- **Rapid Onboarding** - New team members (human or AI) understand your workflow immediately
+
+### Design Philosophy
+
+1. **Systematic over ad-hoc** - Repeatable workflows beat one-off solutions
+2. **Human oversight** - AI assists, humans decide
+3. **Separation of concerns** - Implementer focuses on execution, architect on review
+4. **Documentation-driven** - Requirements define tasks, tasks define code
+5. **Convention over configuration** - Strong conventions reduce cognitive load
+
+## Workflows
+
+### Decision Tree
+
+```
+Start: I have an idea
+│
+├─── Is the idea clear and well-defined?
+│    ├─── No → /brainstorm
+│    └─── Yes → Continue
+│
+├─── Is this a small change or large feature?
+│    ├─── Small → Quick Fix Workflow
+│    └─── Large → Feature Development Workflow
+│
+└─── Implementation approach?
+     ├─── AI-assisted → /task-orchestrator
+     └─── Manual → /process-task-list
+```
+
+### Quick Fix Workflow
+
+**For:** Bug fixes, small features, quick improvements
+
+```bash
+# 1. Create branch
+git checkout -b jdw-claude-fix-validation
+
+# 2. Make changes & tests
+
+# 3. Commit
+/smart-commit
+
+# 4. Create PR
+/create-pr
+
+# 5. After merge
+git checkout main && git pull
+git branch -d jdw-claude-fix-validation
+```
+
+### Feature Development Workflow
+
+**For:** Major features, complex changes, multi-day work
+
+```bash
+# 1. Refine idea (if vague)
+/brainstorm
+
+# 2. Create requirements
+/create-prd  # or /create-erd
+
+# 3. Generate tasks
+/generate-tasks tasks/prd-feature-name.md
+
+# 4. Implement
+/task-orchestrator tasks/tasks-feature-name.md  # or /process-task-list
+
+# 5. Create PR
+/create-pr
+
+# 6. Update docs
+/update-docs
+
+# 7. After merge
+git checkout main && git pull
+```
+
+## Real-World Examples
+
+### Example 1: Small Bug Fix
+
+```bash
+git checkout -b jdw-claude-fix-login-validation
+# ... make fixes ...
+/smart-commit
+/create-pr
+# ... after merge ...
+git checkout main && git pull
+git branch -d jdw-claude-fix-login-validation
+```
+
+**Time:** 30 minutes | **Complexity:** Low
+
+### Example 2: Medium Feature (Clear Requirements)
+
+```bash
+git checkout -b jdw-claude-export-csv
+/create-erd
+/generate-tasks tasks/erd-export-csv.md
+/process-task-list tasks/tasks-export-csv.md
+/create-pr
+/update-docs
+# ... after merge ...
+git checkout main && git pull
+git branch -d jdw-claude-export-csv
+```
+
+**Time:** 1-2 days | **Complexity:** Medium
+
+### Example 3: Complex Feature (Vague Idea)
+
+```bash
+git checkout -b jdw-claude-analytics
+/brainstorm
+/create-prd
+/generate-tasks tasks/prd-analytics.md
+/task-orchestrator tasks/tasks-analytics.md
+/create-pr
+/update-docs
+# ... after merge ...
+git checkout main && git pull
+git branch -d jdw-claude-analytics
+```
+
+**Time:** 3-5 days | **Complexity:** High | **AI Assistance:** High
+
+## Command Usage Tips
+
+### Task List Format
+
+Tasks are stored in `tasks/` directory:
+
+```markdown
+## Relevant Files
+- `app/models/user.rb` - User model
+- `spec/models/user_spec.rb` - Tests
+
+## Tasks
+- [ ] 1.0 Parent Task
+  - [ ] 1.1 Subtask description
+  - [ ] 1.2 Subtask description
+- [x] 2.0 Completed Task
+```
+
+### Generated File Locations
+
+- `tasks/brainstorm-*.md` - Brainstorm outputs
+- `tasks/prd-*.md` - Product requirements
+- `tasks/erd-*.md` - Engineering requirements
+- `tasks/tasks-*.md` - Task breakdowns
+
+### Command Chaining
+
+Commands are designed to chain together:
+
+```bash
+/create-erd                                    # → tasks/erd-feature.md
+/generate-tasks tasks/erd-feature.md          # → tasks/tasks-feature.md
+/task-orchestrator tasks/tasks-feature.md     # → implements & commits
+```
+
+## References & Resources
+
+- **[AGENTS.md Standard](https://github.com/openai/agents.md)** - Original specification from OpenAI
+- **[Claude Code Documentation](https://docs.claude.com/en/docs/claude-code)** - Official Claude Code docs
+- **Individual command files** in `commands/` - Detailed command documentation
 
 ---
 
-**Remember**: These guidelines are living documents. Update them as your practices evolve, and always prioritize clarity and maintainability.
+**Remember**: This is a living configuration repository. Update guidelines, commands, and workflows as your practices evolve. Prioritize clarity and maintainability over cleverness.
