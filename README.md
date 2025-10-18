@@ -17,6 +17,8 @@ claude-config/
 ├── README.md                      # This file - complete guide and workflows
 ├── CLAUDE.md                      # Repository-specific Claude Code instructions
 ├── AGENTS.md                      # Core agent guidelines (use in project roots)
+├── Rakefile                       # Automated setup/uninstall tasks
+├── .gitignore                     # Ignore OS files, editors, generated tasks
 ├── agents/                        # Specialized agent role definitions
 │   ├── implementer.md            # Task execution agent (no scope creep)
 │   └── review-architect.md       # Code review and quality assurance agent
@@ -41,7 +43,24 @@ claude-config/
 
 ### For Claude Code Users
 
-**Global Setup (Recommended):**
+**Automated Setup (Easiest):**
+```bash
+# Clone or navigate to this repository
+cd ~/Code/claude-config
+
+# Run the automated setup
+rake setup
+
+# This will:
+# - Create ~/.claude/ directory if needed
+# - Symlink AGENTS.md to ~/.claude/CLAUDE.md
+# - Symlink all files in agents/, commands/, and guidelines/ to ~/.claude/
+
+# To remove symlinks later:
+rake uninstall
+```
+
+**Manual Setup (Alternative):**
 ```bash
 # Reference this repo in your global Claude Code config
 echo "For all projects, follow guidelines in ~/Code/claude-config/AGENTS.md" >> ~/.claude/CLAUDE.md
@@ -62,6 +81,46 @@ cp ~/Code/claude-config/AGENTS.md /path/to/project/
 2. **Check [CLAUDE.md](CLAUDE.md)** - Repository-specific architecture and conventions
 3. **Reference the Workflows section below** - Complete workflow decision trees and examples
 4. **Use language-specific guidelines** in `guidelines/` as needed
+
+## Installation
+
+### Requirements
+- Ruby (for running `rake` tasks - likely already installed on macOS/Linux)
+- Git
+
+### Setup Steps
+
+1. **Clone this repository:**
+   ```bash
+   git clone https://github.com/your-username/claude-config.git ~/Code/claude-config
+   cd ~/Code/claude-config
+   ```
+
+2. **Run automated setup:**
+   ```bash
+   rake setup
+   ```
+
+   This will:
+   - Create `~/.claude/` directory
+   - Symlink `AGENTS.md` → `~/.claude/CLAUDE.md`
+   - Symlink all agent definitions to `~/.claude/agents/`
+   - Symlink all commands to `~/.claude/commands/`
+   - Symlink all guidelines to `~/.claude/guidelines/`
+
+3. **Verify setup:**
+   ```bash
+   ls -la ~/.claude/
+   ```
+
+### Uninstalling
+
+To remove all symlinks created by setup:
+```bash
+rake uninstall
+```
+
+This only removes symlinks pointing to this repository, leaving other files unchanged.
 
 ## Core Components
 
@@ -249,6 +308,13 @@ Git best practices covering:
 
 ### Global Setup (All Projects)
 
+**Option 1: Automated (Recommended):**
+```bash
+cd ~/Code/claude-config
+rake setup
+```
+
+**Option 2: Manual:**
 Add to `~/.claude/CLAUDE.md`:
 
 ```markdown

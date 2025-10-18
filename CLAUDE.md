@@ -17,6 +17,8 @@ This repository is designed to be referenced globally via `~/.claude/CLAUDE.md` 
 ```
 claude-config/
 ├── AGENTS.md                      # Core agent guidelines (can be placed in project roots)
+├── Rakefile                       # Automated setup/uninstall via rake tasks
+├── .gitignore                     # Ignore system files and generated content
 ├── agents/                        # Specialized agent role definitions
 │   ├── implementer.md            # Task execution agent (follows specs precisely)
 │   └── review-architect.md       # Code review and quality assurance agent
@@ -47,6 +49,12 @@ This repository does not have traditional "build" or "test" commands since it co
 1. Edit relevant `.md` files in `agents/`, `commands/`, or `guidelines/`
 2. Test changes by using the commands/agents in actual projects
 3. Commit changes following git-workflow guidelines
+
+**To test setup automation:**
+1. Run `rake setup` to verify symlinking works correctly
+2. Check `~/.claude/` directory for proper symlinks
+3. Run `rake uninstall` to verify cleanup works
+4. Ensure only repo-owned symlinks are removed
 
 **To add a new slash command:**
 1. Create a new `.md` file in `commands/` directory
@@ -160,6 +168,14 @@ Mark completed tasks with `[x]`.
 This repository is designed to be referenced globally or copied into projects:
 
 ### Global Setup
+
+**Automated (Recommended):**
+```bash
+cd ~/Code/claude-config
+rake setup
+```
+
+**Manual (Alternative):**
 Add to `~/.claude/CLAUDE.md`:
 
 ```markdown
@@ -194,6 +210,7 @@ Since this is a configuration/documentation repository, "testing" means:
 2. **Test commands in real projects:** Use slash commands in actual development
 3. **Verify agent behavior:** Check that implementer/review-architect work as intended
 4. **Validate workflows:** Run through complete workflows (brainstorm → PRD → tasks → implementation)
+5. **Test Rakefile tasks:** Verify `rake setup` and `rake uninstall` work correctly
 
 ## Common Patterns
 
