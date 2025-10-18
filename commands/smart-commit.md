@@ -13,8 +13,8 @@ You are about to create smart, focused git commits following the repository's gi
      - Check conversation context for ticket references (Linear issues like MDZ-10, Jira tickets, etc.)
      - Analyze the staged/unstaged changes to understand what feature/fix is being worked on
      - Create a descriptive feature branch:
-       - **With ticket**: `<TICKET>-jdw-claude-<feature-description>` (e.g., `MDZ-10-jdw-claude-add-comments`)
-       - **Without ticket**: `jdw-claude-<feature-description>` (e.g., `jdw-claude-refactor-orders`)
+       - **With ticket**: `<TICKET>-claude-<feature-description>` (e.g., `MDZ-10-claude-add-comments`)
+       - **Without ticket**: `claude-<feature-description>` (e.g., `claude-refactor-orders`)
      - Use kebab-case for the feature description
      - Switch to the new branch
 

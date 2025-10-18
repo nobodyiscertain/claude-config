@@ -21,25 +21,24 @@ Comprehensive git workflow practices and commit standards for maintainable versi
 ### Feature Branch Naming Convention
 
 **With ticket reference:**
-`<TICKET>-jdw-<agent-name>-<feature-description>`
+`<TICKET>-<agent-name>-<feature-description>`
 
 **Without ticket reference:**
-`jdw-<agent-name>-<feature-description>`
+`<agent-name>-<feature-description>`
 
 **Examples**:
 ```bash
 # With ticket (Linear, Jira, etc.)
-MDZ-10-jdw-claude-user-authentication
-PROJ-123-jdw-claude-payment-integration
+MDZ-10-claude-user-authentication
+PROJ-123-claude-payment-integration
 
 # Without ticket
-jdw-claude-fix-search-bug
-jdw-claude-refactor-orders
+claude-fix-search-bug
+claude-refactor-orders
 ```
 
 **Pattern Breakdown**:
 - `<TICKET>` - Optional ticket ID from Linear, Jira, etc. (e.g., `MDZ-10`, `PROJ-123`)
-- `jdw` - My initials
 - `<agent-name>` - Name of AI agent or developer (e.g., `claude`, `cursor`, `github-copilot`)
 - `<feature-description>` - Clear, concise description using kebab-case
 
@@ -57,7 +56,7 @@ git checkout main
 git pull origin main
 
 # Create and switch to new feature branch
-git checkout -b jdw-claude-add-comments-feature
+git checkout -b claude-add-comments-feature
 ```
 
 **AI agents should auto-create branches**:
@@ -65,7 +64,7 @@ git checkout -b jdw-claude-add-comments-feature
 # If on main, automatically create feature branch
 current_branch=$(git branch --show-current)
 if [ "$current_branch" = "main" ]; then
-  git checkout -b jdw-claude-<feature-name>
+  git checkout -b claude-<feature-name>
 fi
 ```
 
@@ -365,7 +364,7 @@ Relates to #456
 **Create PR from command line**:
 ```bash
 # Push branch
-git push -u origin jdw-claude-add-comments
+git push -u origin claude-add-comments
 
 # Create PR in draft mode (recommended)
 gh pr create --draft --title "Add comments feature" --body "$(cat <<'EOF'
@@ -422,7 +421,7 @@ git checkout main
 git pull origin main
 
 # Rebase your feature branch
-git checkout jdw-claude-my-feature
+git checkout claude-my-feature
 git rebase main
 
 # If conflicts occur, resolve them
@@ -430,7 +429,7 @@ git add <resolved-files>
 git rebase --continue
 
 # Force push (since history was rewritten)
-git push --force-with-lease origin jdw-claude-my-feature
+git push --force-with-lease origin claude-my-feature
 ```
 
 ### Interactive Rebase
@@ -496,13 +495,13 @@ git pull --rebase origin main  # Preferred
 **Push changes**:
 ```bash
 # First push of new branch
-git push -u origin jdw-claude-my-feature
+git push -u origin claude-my-feature
 
 # Subsequent pushes
 git push
 
 # Force push (after rebase, use with caution)
-git push --force-with-lease origin jdw-claude-my-feature
+git push --force-with-lease origin claude-my-feature
 ```
 
 ### Managing Remotes
@@ -674,7 +673,7 @@ config/credentials/*.key
 ```bash
 git checkout main
 git pull origin main
-git checkout -b jdw-claude-new-feature
+git checkout -b claude-new-feature
 
 # Make changes
 git add .
@@ -685,7 +684,7 @@ git add .
 git commit -m "Add tests for new feature"
 
 # Push and create PR
-git push -u origin jdw-claude-new-feature
+git push -u origin claude-new-feature
 gh pr create --title "Add new feature"
 ```
 
@@ -697,7 +696,7 @@ git checkout main
 git pull origin main
 
 # Update feature branch
-git checkout jdw-claude-my-feature
+git checkout claude-my-feature
 git rebase main
 
 # Resolve conflicts if any
@@ -710,14 +709,14 @@ git push --force-with-lease
 ```bash
 git checkout main
 git pull origin main
-git checkout -b jdw-claude-fix-critical-bug
+git checkout -b claude-fix-critical-bug
 
 # Fix the bug
 git add .
 git commit -m "Fix critical bug in payment processing"
 
 # Push and create PR
-git push -u origin jdw-claude-fix-critical-bug
+git push -u origin claude-fix-critical-bug
 gh pr create --title "Fix critical bug"
 ```
 
@@ -729,9 +728,9 @@ gh pr create --title "Fix critical bug"
 
 ```bash
 # Don't panic! Just move to a branch
-git branch jdw-claude-accidental-work
+git branch claude-accidental-work
 git reset --hard origin/main
-git checkout jdw-claude-accidental-work
+git checkout claude-accidental-work
 ```
 
 ### Accidentally Pushed to Main
@@ -754,7 +753,7 @@ git reflog
 
 # Restore lost commit
 git checkout <commit-hash>
-git checkout -b jdw-claude-recovered-work
+git checkout -b claude-recovered-work
 ```
 
 ---
