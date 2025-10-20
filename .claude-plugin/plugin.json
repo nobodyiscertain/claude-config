@@ -1,6 +1,6 @@
 {
   "name": "nobodyiscertain-dev-flow",
-  "description": "Commands, Agents & Configs for Claude Code - centralized collection of instructions, guidelines, and custom slash commands for AI coding agents",
+  "description": "Structured development workflow with orchestrated AI agents - from brainstorming to PRD/ERD generation, task breakdown, automated implementation with review cycles, and PR creation",
   "version": "0.0.1",
   "author": {
     "name": "nobodyiscertain"
