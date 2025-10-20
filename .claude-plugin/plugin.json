@@ -1,0 +1,8 @@
+{
+  "name": "nobodyiscertain-claude-config",
+  "description": "Commands, Agents & Configs for Claude Code - centralized collection of instructions, guidelines, and custom slash commands for AI coding agents",
+  "version": "0.0.1",
+  "author": {
+    "name": "nobodyiscertain"
+  }
+}
