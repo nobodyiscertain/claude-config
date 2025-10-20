@@ -1,4 +1,5 @@
 ---
+name: update-docs
 description: Review recent commits and propose documentation updates for outdated or missing content
 allowed-tools: Bash, Read, Edit, Grep, Glob
 ---

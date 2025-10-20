@@ -1,3 +1,9 @@
+---
+name: ruby-rails
+description: Comprehensive conventions and style guidelines for Ruby on Rails development
+type: guideline
+---
+
 # Ruby on Rails Guidelines
 
 Comprehensive conventions and style guidelines for Ruby on Rails development.

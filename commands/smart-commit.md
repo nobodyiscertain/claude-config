@@ -1,4 +1,5 @@
 ---
+name: smart-commit
 description: Intelligently commit changes by analyzing diffs and creating focused commits
 allowed-tools: Bash, Read
 ---

@@ -1,4 +1,5 @@
 ---
+name: task-orchestrator
 description: Orchestrate task implementation with implementer and architect review agents
 allowed-tools: Read, Task, Edit, SlashCommand
 ---

@@ -1,3 +1,9 @@
+---
+name: create-pr
+description: Create a pull request for the current branch with proper analysis and formatting
+allowed-tools: Bash, Read
+---
+
 # Create Pull Request
 
 You are tasked with creating a pull request for the current branch.

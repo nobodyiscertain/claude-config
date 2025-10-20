@@ -1,4 +1,5 @@
 ---
+name: generate-tasks
 description: Generate a detailed, step-by-step task list from a Requirements Document (PRD or ERD)
 allowed-tools: Read, Write, Grep, Glob
 ---

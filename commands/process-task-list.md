@@ -1,4 +1,5 @@
 ---
+name: process-task-list
 description: Execute task lists with automated implementation and manual approval between each sub-task
 allowed-tools: Read, Edit, Bash
 ---

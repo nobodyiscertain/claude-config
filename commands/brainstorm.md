@@ -1,4 +1,5 @@
 ---
+name: brainstorm
 description: Interactively refine a vague feature idea through guided questions and chunked exploration
 allowed-tools: Read, Write
 ---
