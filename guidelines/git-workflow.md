@@ -1,3 +1,9 @@
+---
+name: git-workflow
+description: Comprehensive git workflow practices and commit standards for maintainable version control
+type: guideline
+---
+
 # Git Workflow and Commit Guidelines
 
 Comprehensive git workflow practices and commit standards for maintainable version control.

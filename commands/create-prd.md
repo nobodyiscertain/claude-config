@@ -1,4 +1,5 @@
 ---
+name: create-prd
 description: Generate a detailed Product Requirements Document (PRD) from an initial feature prompt
 allowed-tools: Read, Write
 ---

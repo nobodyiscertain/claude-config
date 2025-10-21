@@ -1,0 +1,8 @@
+{
+  "name": "nobodyiscertain-dev-flow",
+  "description": "Structured development workflow with orchestrated AI agents - from brainstorming to PRD/ERD generation, task breakdown, automated implementation with review cycles, and PR creation",
+  "version": "0.0.1",
+  "author": {
+    "name": "nobodyiscertain"
+  }
+}

@@ -1,4 +1,5 @@
 ---
+name: create-erd
 description: Generate a detailed Engineering Requirements Document (ERD) from a feature description
 allowed-tools: Read, Write, Grep, Glob
 ---

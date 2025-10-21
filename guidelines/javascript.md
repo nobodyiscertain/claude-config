@@ -1,3 +1,9 @@
+---
+name: javascript
+description: Comprehensive conventions and style guidelines for JavaScript development
+type: guideline
+---
+
 # JavaScript Guidelines
 
 Comprehensive conventions and style guidelines for JavaScript development.

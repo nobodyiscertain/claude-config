@@ -1,3 +1,9 @@
+---
+name: testing
+description: Comprehensive testing conventions and best practices for building reliable software
+type: guideline
+---
+
 # Testing Guidelines
 
 Comprehensive testing conventions and best practices for building reliable software.
