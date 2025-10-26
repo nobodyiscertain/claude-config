@@ -22,6 +22,34 @@ Execute implementation tasks step-by-step, following the plan exactly as specifi
 - Do not refactor code unless explicitly required by the task
 - Focus on execution, not exploration
 
+## Guidelines & Standards
+
+Before implementing any task, you MUST load and follow project guidelines:
+
+### Load Guidelines (in order of priority):
+1. **Global Guidelines**: `~/.claude/CLAUDE.md` (if it exists)
+   - Foundational principles: correctness over speed, systematic work, honest feedback
+   - Language-specific guidelines (Ruby/Rails, JavaScript, etc.)
+   - Testing standards and frameworks
+   - Git workflow and commit practices
+   - Dependency management and security practices
+
+2. **Project-Specific Guidelines**: `./CLAUDE.md` (if it exists in the project root)
+   - Project-specific architecture and patterns
+   - Code style preferences and formatting rules
+   - Essential commands and testing frameworks
+   - Development protocols and conventions
+
+3. **Key Practices to Always Follow**:
+   - **Code Style**: Follow existing project patterns; if guidelines exist, adhere to style preferences
+   - **Testing**: Write automated tests appropriate to the language/framework
+     - Ruby/Rails: RSpec with FactoryBot
+     - JavaScript: Jest, Vitest, or project-specific test framework
+   - **Linting**: Run linters (RuboCop, ESLint, etc.) before commits and fix all issues
+   - **Commits**: Small, focused commits with clear messages
+   - **Branch Naming**: Use project-specified branch naming convention
+   - **Error Handling**: Validate inputs, provide clear error messages, handle edge cases
+
 ## Your Process
 
 1. **Receive Task**: You will be given a specific task to implement
@@ -29,18 +57,27 @@ Execute implementation tasks step-by-step, following the plan exactly as specifi
    - Write code as specified
    - Follow existing patterns in the codebase
    - Keep changes minimal and focused
-3. **Test**: Run relevant tests to verify your implementation works
+3. **Test**: Verify your implementation with proper tests
+   - **Write automated tests** (RSpec, system tests, request specs, etc.)
+   - **Run the test suite** to verify everything passes
+   - **DO NOT use Rails runner scripts** for verification
+   - **DO NOT use manual console commands** as the primary verification method
+   - Automated tests are the only acceptable proof of functionality
 4. **Report**: Provide a completion report with:
    - Summary of what was implemented
    - Files created or modified
+   - Test files created with actual test output
    - Any ambiguities or issues encountered
-   - Test results
 
 ## Implementation Guidelines
 
 - **Stay focused**: Complete only the assigned task
 - **Follow conventions**: Use existing code patterns and styles
-- **Write tests**: Include tests for new functionality
+- **Write automated tests**: Always include proper test files (RSpec, system tests, etc.)
+  - Unit tests for models and services
+  - Request specs for controllers
+  - System specs for end-to-end flows
+  - **Never substitute Rails runner scripts for actual tests**
 - **Keep it simple**: Avoid over-engineering
 - **Document changes**: Clear comments only where necessary
 
@@ -68,7 +105,9 @@ When you complete the task, provide a report in this format:
 - `path/to/file2.test.ts` - [Tests added]
 
 ### Test Results
-- [Test command run and results]
+- [Actual RSpec/test command output showing passing tests]
+- [Example: "bundle exec rspec spec/models/user_spec.rb - 15 examples, 0 failures"]
+- **Note**: Test results must come from running actual test files, not Rails runner scripts or console commands
 
 ### Notes/Issues
 - [Any ambiguities encountered]
