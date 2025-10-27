@@ -58,10 +58,21 @@ This repository does not have traditional "build" or "test" commands since it co
 
 **To add a new slash command:**
 1. Create a new `.md` file in `commands/` directory
-2. Include frontmatter with `description` and `allowed-tools`
+2. Include frontmatter with `name`, `description`, and `allowed-tools`
 3. Write clear, step-by-step instructions for the agent
-4. Update `commands/README.md` with documentation
+4. Update main `README.md` to document the new command
 5. Test the command in a real project
+
+**Command Frontmatter Format:**
+```markdown
+---
+name: command-name
+description: Brief description of what this command does
+allowed-tools: Bash, Read, Edit, Write, Task, SlashCommand
+---
+```
+
+All commands and agents must include this metadata for proper registration.
 
 **To add a new guideline:**
 1. Create a new `.md` file in `guidelines/` directory
@@ -297,12 +308,22 @@ This repository embodies several key principles:
 
 **When adding new commands:**
 - Place in `commands/` directory
+- Include proper frontmatter metadata (name, description, allowed-tools)
 - Update main `README.md` if it significantly changes workflows
 
 **When updating agent roles:**
 - Edit `agents/implementer.md` or `agents/review-architect.md`
+- Include frontmatter metadata (name, description)
 - Test with `/task-orchestrator` to verify changes work
 - Update `commands/task-orchestrator.md` if interface changes
+
+**Recent enhancements to task-orchestrator workflow:**
+- Auto-proceed for APPROVE and APPROVE WITH SUGGESTIONS reviews
+- Conditional user pause only for REQUEST CHANGES status
+- Sound notifications (afplay) when changes are requested
+- Improvement notes tracking to capture architect suggestions as future tasks
+- Flexible user options after implementation: "fix", "skip", "approve", "stop"
+- See `commands/task-orchestrator.md` for full details
 
 **When updating guidelines:**
 - Edit relevant file in `guidelines/`
