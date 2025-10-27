@@ -200,7 +200,7 @@ A quality assurance agent that provides critical oversight and code review.
 
 ## Custom Slash Commands
 
-This repository includes 10+ custom Claude Code slash commands. See [commands/README.md](commands/README.md) for complete documentation.
+This repository includes 10+ custom Claude Code slash commands organized by workflow category.
 
 ### Command Categories
 
@@ -359,7 +359,7 @@ Fork this repository and customize:
 
 1. **Modify guidelines** - Update language-specific conventions in `guidelines/`
 2. **Add new commands** - Create custom slash commands in `commands/`
-3. **Adjust workflows** - Update `commands/WORKFLOW.md` for your process
+3. **Adjust workflows** - Update workflows section in README for your process
 4. **Extend agent roles** - Add specialized agents in `agents/`
 
 ### Adding New Commands
