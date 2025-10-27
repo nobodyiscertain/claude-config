@@ -75,6 +75,25 @@ cp -r ~/Code/claude-config/commands /path/to/project/.claude/
 cp ~/Code/claude-config/AGENTS.md /path/to/project/
 ```
 
+**Install as Claude Plugin (Recommended for Web/IDE):**
+
+This repository is configured as a Claude plugin and can be installed directly in Claude Code (web version, VS Code extension, or JetBrains IDE):
+
+1. **Open Claude Code** in your preferred environment (web, VS Code, or JetBrains)
+2. **Use the plugin menu** to install from this repository:
+   - In Claude Code, go to the Plugins section
+   - Search for or paste the repository URL
+   - Click "Install" to add this plugin
+3. **Verify installation:**
+   - After installation, all slash commands (like `/task-orchestrator`, `/brainstorm`, etc.) will be available
+   - Agent guidelines will be loaded automatically
+   - This repository's CLAUDE.md will be available as your configuration
+
+The plugin configuration is defined in `.claude-plugin/plugin.json` and includes:
+- All custom slash commands from `commands/` directory
+- Specialized agents from `agents/` directory
+- Development guidelines from `guidelines/` directory
+
 ### For AI Agents Reading This
 
 1. **Read [AGENTS.md](AGENTS.md) first** - Contains core workflow instructions and philosophy
@@ -84,11 +103,44 @@ cp ~/Code/claude-config/AGENTS.md /path/to/project/
 
 ## Installation
 
+### Options Overview
+
+This repository can be installed in three ways:
+
+1. **As a Claude Plugin** (Recommended for web/IDE users) - Easiest, works everywhere Claude Code is available
+2. **Automated CLI Setup** (Recommended for CLI users) - Uses `rake setup` to symlink files globally
+3. **Manual Setup** (Alternative) - Copy files as needed to specific projects
+
 ### Requirements
 - Ruby (for running `rake` tasks - likely already installed on macOS/Linux)
 - Git
 
-### Setup Steps
+### Option 1: Install as Claude Plugin (Web, VS Code, JetBrains)
+
+This is the easiest method if you use Claude Code in the web, VS Code extension, or JetBrains IDE:
+
+1. **Get the repository URL:**
+   - Clone this repository or use: `https://github.com/your-username/claude-config`
+
+2. **Open Claude Code:**
+   - Web: Go to claude.com/code
+   - VS Code: Open the Claude Code extension
+   - JetBrains: Open Claude Code in your IDE
+
+3. **Install the plugin:**
+   - Look for the Plugins menu/section in Claude Code
+   - Select "Install plugin"
+   - Paste the repository URL or search for the plugin
+   - Click "Install"
+
+4. **Verify installation:**
+   - All slash commands (`/task-orchestrator`, `/brainstorm`, etc.) are now available
+   - The plugin's CLAUDE.md configuration is automatically loaded
+   - Agent guidelines and development workflows are ready to use
+
+### Option 2: Automated CLI Setup (macOS/Linux)
+
+For CLI users who want all commands and guidelines available globally:
 
 1. **Clone this repository:**
    ```bash
@@ -113,14 +165,26 @@ cp ~/Code/claude-config/AGENTS.md /path/to/project/
    ls -la ~/.claude/
    ```
 
-### Uninstalling
+4. **To uninstall later:**
+   ```bash
+   rake uninstall
+   ```
+   This only removes symlinks pointing to this repository, leaving other files unchanged.
 
-To remove all symlinks created by setup:
+### Option 3: Manual Setup (Project-Specific)
+
+Copy files as needed for specific projects:
+
 ```bash
-rake uninstall
-```
+# Copy all commands to a specific project
+cp -r ~/Code/claude-config/commands /path/to/project/.claude/
 
-This only removes symlinks pointing to this repository, leaving other files unchanged.
+# Copy agents to a specific project
+cp -r ~/Code/claude-config/agents /path/to/project/.claude/
+
+# Copy AGENTS.md to project root for project-specific guidelines
+cp ~/Code/claude-config/AGENTS.md /path/to/project/
+```
 
 ## Core Components
 
